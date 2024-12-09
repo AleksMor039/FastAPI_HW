@@ -19,7 +19,7 @@ async def Admin_page() -> dict:
 # маршрут к страницам пользователей по "/user/{user_id}
 @app.get("/user/{user_id}")
 async def User_Number(
-        user_id: Annotated [int, Path(ge=1,
+        user_id: Annotated[int, Path(ge=1,
                                       le=100,
                                       description="Enter User ID")]
 ) -> dict:
@@ -29,11 +29,11 @@ async def User_Number(
 # маршрут к страницам пользователей по "/user"
 @app.get("/user/{username}/{age}")
 async def User_Info(
-        username: Annotated [str, Path(min_length=5,
+        username: Annotated[str, Path(min_length=5,
                                        max_length=20,
                                        regex="^[A-Za-z\\S]+$",
                                        description = "Enter username")],
-        age: Annotated [int, Path(ge=18,
+        age: Annotated[int, Path(ge=18,
                                   le=120,
                                   description = "Enter age")],
 ) -> dict:
