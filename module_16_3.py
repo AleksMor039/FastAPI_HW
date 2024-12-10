@@ -44,7 +44,7 @@ async def update_user(user_id: Annotated[int, Path(gt=0, description="Enter user
 
 # 4. delete запрос по маршруту "/user/{user_id}"
 @app.delete("/user/{user_id}")
-async def delete_user(user_id: Annotated[int, Path(description="ID пользователя")]) -> str:
+async def delete_user(user_id: Annotated[int, Path(description="ID user")]) -> str:
     if user_id not in users:
         raise HTTPException(status_code=404, detail=f"User {user_id} not found")
     del users[user_id]
